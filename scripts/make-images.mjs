@@ -18,15 +18,15 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 /** Inline local files as data URIs (a page opened with setContent cannot load file:// URLs). */
 const file = (p, type) => `data:${type};base64,${readFileSync(resolve(root, p)).toString('base64')}`;
 
-const serif = file('node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2', 'font/woff2');
-const serifItalic = file('node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-italic.woff2', 'font/woff2');
-const sans = file('node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2', 'font/woff2');
+const serif = file('node_modules/@fontsource-variable/eb-garamond/files/eb-garamond-latin-wght-normal.woff2', 'font/woff2');
+const serifItalic = file('node_modules/@fontsource-variable/eb-garamond/files/eb-garamond-latin-wght-italic.woff2', 'font/woff2');
+const sans = file('node_modules/@fontsource-variable/eb-garamond/files/eb-garamond-latin-wght-normal.woff2', 'font/woff2');
 const portrait = file('src/assets/portrait.webp', 'image/webp');
 
 const fonts = `
   @font-face { font-family: 'Newsreader'; src: url(${serif}) format('woff2'); font-weight: 200 800; font-style: normal; }
   @font-face { font-family: 'Newsreader'; src: url(${serifItalic}) format('woff2'); font-weight: 200 800; font-style: italic; }
-  @font-face { font-family: 'Inter'; src: url(${sans}) format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Inter'; src: url(${sans}) format('woff2'); font-weight: 400 800; }
 `;
 
 const og = {

@@ -3,7 +3,7 @@
 Personal website of Rozafë Rexhepaj, journalist and communications specialist in Vienna.
 It's bilingual: German at `/`, English at `/en/`.
 
-**Stack:** [Astro](https://astro.build) static site · TypeScript · plain CSS · self-hosted fonts (Newsreader + Inter) · one PHP file for the contact form. There's no database and no server-side framework, so it runs on any Namecheap shared hosting plan.
+**Stack:** [Astro](https://astro.build) static site · TypeScript · plain CSS · self-hosted font (EB Garamond) · one PHP file for the contact form. There's no database and no server-side framework, so it runs on any Namecheap shared hosting plan.
 
 ## Run it locally
 
