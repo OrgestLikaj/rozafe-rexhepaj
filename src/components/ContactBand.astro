@@ -22,7 +22,7 @@ const copy = {
 }[lang];
 ---
 
-<section class="band reveal" aria-labelledby="band-title">
+<section class="band" aria-labelledby="band-title">
   <div class="container band__inner">
     <div>
       <p class="kicker kicker--accent">{copy.kicker}</p>
@@ -44,13 +44,16 @@ const copy = {
   :global(.section) + .band {
     margin-top: 0;
   }
+  /* The band sits directly on the burgundy footer, like the lining of an envelope. */
+  :global(main:has(.band)) + :global(.site-footer) {
+    margin-top: 0;
+  }
   .band__inner {
     display: grid;
     gap: 2rem;
     align-items: end;
     padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
     border-top: 1px solid var(--ink);
-    border-bottom: 1px solid var(--rule);
   }
   @media (min-width: 880px) {
     .band__inner {

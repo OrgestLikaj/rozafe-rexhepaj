@@ -19,6 +19,16 @@
   --accent-soft: rgba(142, 47, 42, 0.08);
   --focus: #8e2f2a;
 
+  /* Burgundy, for the bands that break up the paper (like the lining of an envelope or a wax seal). */
+  --wine: #5c1b20;
+  --wine-deep: #43121a;
+  --on-wine: #f6eee3;
+  --on-wine-muted: rgba(246, 238, 227, 0.78);
+  --on-wine-rule: rgba(246, 238, 227, 0.22);
+  --on-wine-accent: #f0c3b4;
+  /* A paper with a hint of burgundy, for the mid-page band. */
+  --blush: #f0e1da;
+
   /* One letter-style serif for everything. --sans is kept as a name so existing rules still work. */
   --serif: 'EB Garamond Variable', Garamond, 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --sans: var(--serif);
@@ -181,9 +191,32 @@ a:hover {
   padding-block: calc(var(--section) * 0.6);
 }
 
+/* Mid-page band: paper with a burgundy tint, not a full colour block. */
 .section--band {
-  background: var(--paper-2);
-  border-block: 1px solid var(--rule);
+  background: var(--blush);
+  border-block: 1px solid rgba(92, 27, 32, 0.14);
+}
+
+/* Burgundy sections (the footer). Re-pointing the colour tokens inside the block means every component in it
+   (headings, muted text, rules, buttons, links, focus rings) turns cream without its own overrides. */
+.on-wine {
+  --paper: var(--wine);
+  --paper-2: var(--wine-deep);
+  --surface: var(--wine-deep);
+  --ink: var(--on-wine);
+  --muted: var(--on-wine-muted);
+  --rule: var(--on-wine-rule);
+  --rule-strong: var(--on-wine-muted);
+  --accent: var(--on-wine-accent);
+  --accent-ink: var(--wine-deep);
+  --accent-soft: rgba(240, 195, 180, 0.12);
+  --focus: var(--on-wine);
+  background: var(--wine);
+  color: var(--ink);
+}
+.on-wine ::selection {
+  background: var(--on-wine);
+  color: var(--wine-deep);
 }
 
 .section-head {
