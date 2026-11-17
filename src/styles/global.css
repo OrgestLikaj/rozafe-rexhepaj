@@ -86,6 +86,66 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- Letter paper ----------
+   A fixed layer over the whole page that makes it read like a sheet of writing paper:
+   fine grain, soft mottling from the paper fibres, and edges that darken a little like an old letter.
+   It ignores clicks and is multiplied onto whatever is below, so text and colours stay as they are. */
+
+:root {
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .17 0 0 0 .4 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  --paper-fibre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='700'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.006 .018' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .42 0 0 0 0 .25 0 0 0 .4 -.15'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+  --paper-edge: radial-gradient(ellipse 120% 100% at 50% 45%, transparent 55%, rgba(130, 96, 52, 0.13) 100%);
+  --paper-layer-opacity: 1;
+  --paper-layer-blend: multiply;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper-edge: radial-gradient(ellipse 120% 100% at 50% 45%, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+    --paper-layer-opacity: 0.35;
+    --paper-layer-blend: screen;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+  background-image: var(--paper-edge), var(--paper-fibre), var(--paper-grain);
+  background-size:
+    100% 100%,
+    700px 700px,
+    220px 220px;
+  mix-blend-mode: var(--paper-layer-blend);
+  opacity: var(--paper-layer-opacity);
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Screen would lighten the edges; keep the dark vignette on its own layer. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: var(--paper-edge);
+  }
+  /* Dark mode keeps only a faint grain: the fibre clouds look like smudges on a dark page. */
+  body::before {
+    background-image: var(--paper-grain);
+    background-size: 220px 220px;
+  }
+}
+
+@media print {
+  body::before,
+  body::after {
+    display: none;
+  }
+}
+
 img,
 svg {
   display: block;
