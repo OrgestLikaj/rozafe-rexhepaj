@@ -70,7 +70,7 @@ The social-sharing images (`public/og-de.png`, `public/og-en.png`) and app icons
 - SEO: per-page titles and descriptions, canonical URLs, `hreflang` DE/EN alternates, XML sitemap with alternates, `robots.txt`
 - Open Graph and Twitter cards with a designed 1200×630 image per language
 - Structured data (JSON-LD): `Person`, `WebSite`, `ProfilePage`, and an `ItemList` of articles with author and publisher
-- Accessibility: skip link, keyboard-friendly menu (Escape closes), visible focus, labelled form, `lang` set on Albanian headlines; checked with axe in light and dark mode
-- Light and dark themes (follows the visitor's system), reduced-motion support
+- Accessibility: skip link, keyboard-friendly menu (Escape closes), visible focus, labelled form, `lang` set on Albanian headlines; checked with axe
+- Cream letter-paper background (grain, fibres, soft edges) in one light theme for every visitor; reduced-motion support
 - Contact form with honeypot, time trap and per-IP rate limit; works without JavaScript too
 - Security and caching headers in `.htaccess`
