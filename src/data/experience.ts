@@ -18,23 +18,6 @@ export interface Role {
 
 export const journalism: Role[] = [
   {
-    title: { de: 'Autorin', en: 'Contributing writer' },
-    org: 'HAJDE – Home Abroad: Journal for Diaspora & Expats',
-    place: { de: 'Wien', en: 'Vienna' },
-    start: '2025',
-    kind: { de: 'freiberuflich', en: 'freelance' },
-    points: {
-      de: [
-        'Ratgeber- und Nachrichtenbeiträge für Menschen mit Wurzeln am Balkan, die in Österreich leben oder hierher ziehen.',
-        'Übersetzung behördlicher Anforderungen – Dokumente, Krankenversicherung, Zivilschutz – in klare, praktische Informationen.',
-      ],
-      en: [
-        'Guides and news for people with Balkan roots who live in Austria or are moving here.',
-        'Turning official requirements (documents, health insurance, civil defence) into clear, practical information.',
-      ],
-    },
-  },
-  {
     title: { de: 'Redakteurin', en: 'Editor and writer' },
     org: 'Albinfo.at / Albinfo.ch',
     place: { de: 'Wien', en: 'Vienna' },
